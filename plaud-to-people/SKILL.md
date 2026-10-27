@@ -36,7 +36,7 @@ and one file often holds several different people.
 
 ## Step 2. Treat Plaud's transcript as a draft, not as truth
 
-Measured on our recordings: the built-in transcript covered only **7-47% of the actual speech**,
+Measured on our recordings: the built-in transcript text covered only **7-47% of the recording duration** (no human gold transcript, so not a proven speech-recall figure),
 sometimes hallucinated (Chinese characters inside a Russian/English talk) and mangled names
 ("Gwern" → "Warren"). Fine for a quick summary, not for deciding who someone is.
 
