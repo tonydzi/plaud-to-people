@@ -1,0 +1,13 @@
+cff-version: 1.2.0
+message: "If you use tonydzi/plaud-to-people in research or software, please cite it as below."
+title: "tonydzi/plaud-to-people"
+type: software
+authors:
+  - family-names: Dziatkovskii
+    given-names: Anton
+    orcid: "https://orcid.org/0000-0001-7408-3054"
+    affiliation: "Palo Alto AI Research Lab"
+repository-code: "https://github.com/tonydzi/plaud-to-people"
+url: "https://github.com/tonydzi/plaud-to-people"
+abstract: >-
+  Claude Code / Codex / Cursor skill: Plaud recording to honest transcript, who said what, and one note per person.
