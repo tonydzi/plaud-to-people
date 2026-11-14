@@ -10,7 +10,7 @@ A skill for AI coding agents that turns a Plaud voice recording of a meeting or 
 2. Copy the folder `plaud-to-people` from this repo into your agent's skills folder (Claude Code: `~/.claude/skills/`, Codex: `~/.codex/skills/`).
 3. Tell your agent: "process today's Plaud recordings and tell me who I talked to".
 
-**Done when:** the agent lists today's recordings and writes a note file for each person you confirmed.
+**Done when:** the agent lists today's recordings (after you have signed in with `plaud login`), shows you proposed people with timestamps, and, only after you confirm each one, writes one note per confirmed person. The skill does not fix a notes folder: tell the agent where your notes live. It also leaves an `episodes/<id>.json` file per recording in the folder it works in.
 
 > Want an AI agent to do it for you? Paste this to Claude Code / Codex / Cursor:
 > "Read the 'For AI agents' section of https://github.com/tonydzi/plaud-to-people and set it up for me."
@@ -29,6 +29,7 @@ npm install -g @plaud-ai/cli
 mkdir -p ~/.claude/skills
 cp -r plaud-to-people/plaud-to-people ~/.claude/skills/
 ```
+PowerShell: `New-Item -ItemType Directory -Force "$HOME\.claude\skills"; Copy-Item -Recurse plaud-to-people\plaud-to-people "$HOME\.claude\skills\"`. `npm install -g` changes the machine-wide npm packages: tell the human first.
 For Codex use `~/.codex/skills/` instead. For other agents ask the human where their skills folder is. The inner folder `plaud-to-people/` holds `SKILL.md`. Optional, only with the human's yes: `pip install faster-whisper soundfile`.
 
 ### Configure
@@ -39,7 +40,7 @@ No config file. The only credential is the Plaud OAuth session created by `plaud
 plaud --help
 ls ~/.claude/skills/plaud-to-people/SKILL.md
 ```
-Expected: `plaud --help` exits 0 and lists `login`, `files`, `transcript`, `today`; the `ls` prints the path. After the human has logged in, `plaud today` lists today's recordings. Do not run `plaud me`, `plaud audio` or download audio without the human's yes.
+Expected: `plaud --help` exits 0 and lists `login`, `files`, `transcript`, `today`; the `ls` prints the path (PowerShell: `Test-Path "$HOME\.claude\skills\plaud-to-people\SKILL.md"` prints `True`). These two only prove the tool and the skill file are installed; they pass for any logged-out machine. The real check comes after the human has run `plaud login`: `plaud today` must exit 0 and list today's recordings (an empty list on a day with no recordings is also fine; a hang, an error or a login prompt means the login did not work). Then start a fresh agent session and check that the skill is offered under the name `/plaud-to-people`. Do not run `plaud me`, `plaud audio` or download audio without the human's yes.
 
 ### Uninstall / rollback
 ```bash
