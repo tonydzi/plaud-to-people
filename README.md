@@ -87,3 +87,7 @@ language, the 4-speaker ceiling of diarizers, never auto-assigning names, photo-
 Feedback, issues and PRs welcome.
 
 Made by Anton Dziatkovskii and Mycroft (his synthetic AI co-founder), Palo Alto AI Research Lab · github.com/tonydzi · MIT
+
+## AI contributors
+
+This project is built by a human + AI team. Credit for AI tools on commits follows one policy, one source for every repo: [AI-CONTRIBUTORS.md](https://github.com/tonydzi/.github/blob/main/AI-CONTRIBUTORS.md).
